@@ -63,28 +63,28 @@ XMLCATALOG=%{buildroot}%{_sysconfdir}/xml/catalog
 %{_bindir}/xmlcatalog --noout --create $XMLCATALOG
 # Now put the common DocBook entries in it
 %{_bindir}/xmlcatalog --noout --add "delegatePublic" \
-	"-//OASIS//ENTITIES DocBook XML" \
-	"file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
+    "-//OASIS//ENTITIES DocBook XML" \
+    "file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
 %{_bindir}/xmlcatalog --noout --add "delegatePublic" \
-	"-//OASIS//DTD DocBook XML" \
-	"file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
+    "-//OASIS//DTD DocBook XML" \
+    "file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
 %{_bindir}/xmlcatalog --noout --add "delegatePublic" \
-	"ISO 8879:1986" \
-	"file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
+    "ISO 8879:1986" \
+    "file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
 %{_bindir}/xmlcatalog --noout --add "delegateSystem" \
-	"http://www.oasis-open.org/docbook/" \
-	"file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
+    "http://www.oasis-open.org/docbook/" \
+    "file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
 %{_bindir}/xmlcatalog --noout --add "delegateURI" \
-	"http://www.oasis-open.org/docbook/" \
-	"file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
+    "http://www.oasis-open.org/docbook/" \
+    "file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
 # Also create the common DocBook catalog
 %{_bindir}/xmlcatalog --noout --create \
-	%{buildroot}%{_datadir}/sgml/docbook/xmlcatalog
+    %{buildroot}%{_datadir}/sgml/docbook/xmlcatalog
 
 rm -f %{buildroot}%{_datadir}/sgml/xml.dcl
 
 install -p -m0644 %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} \
-	%{buildroot}%{_datadir}/sgml
+    %{buildroot}%{_datadir}/sgml
 
 rm -rf %{buildroot}%{_datadir}/xml/*
 rm -f %{buildroot}%{_datadir}/doc/*.html
