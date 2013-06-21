@@ -1,3 +1,6 @@
+* Fri Jun 21 02:52:06 UTC 2013 - tracy.graydon@intel.com
+- Add missing docbook_4 dependency and fix path to xmlcatalog files in spec to fix package build 
+
 * Tue Jun 12 2012 Patrick McCarty <patrick.mccarty@linux.intel.com> - 0.6.3
 - Initial package import, required for building systemd man pages.
 

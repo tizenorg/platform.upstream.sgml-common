@@ -19,7 +19,8 @@ Patch0:    sgml-common-umask.patch
 Patch1:    sgml-common-xmldir.patch
 BuildArch: noarch
 BuildRequires: libxml2 >= 2.4.8-2
-BuildRequires: automake >= 1.11
+BuildRequires: automake >= 1.12
+BuildRequires: config(docbook_4)
 
 %description
 The sgml-common package contains a collection of entities and DTDs
@@ -47,7 +48,7 @@ but that don't need to be included in main package.
 # replace bogus links with files
 for file in COPYING INSTALL install-sh missing mkinstalldirs; do 
    rm $file
-   cp -p %{_datadir}/automake-1.11/$file .
+   cp -p %{_datadir}/automake-1.12/$file .
 done
 
 %build
@@ -62,28 +63,28 @@ XMLCATALOG=%{buildroot}%{_sysconfdir}/xml/catalog
 %{_bindir}/xmlcatalog --noout --create $XMLCATALOG
 # Now put the common DocBook entries in it
 %{_bindir}/xmlcatalog --noout --add "delegatePublic" \
-	"-//OASIS//ENTITIES DocBook XML" \
-	"file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
+    "-//OASIS//ENTITIES DocBook XML" \
+    "file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
 %{_bindir}/xmlcatalog --noout --add "delegatePublic" \
-	"-//OASIS//DTD DocBook XML" \
-	"file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
+    "-//OASIS//DTD DocBook XML" \
+    "file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
 %{_bindir}/xmlcatalog --noout --add "delegatePublic" \
-	"ISO 8879:1986" \
-	"file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
+    "ISO 8879:1986" \
+    "file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
 %{_bindir}/xmlcatalog --noout --add "delegateSystem" \
-	"http://www.oasis-open.org/docbook/" \
-	"file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
+    "http://www.oasis-open.org/docbook/" \
+    "file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
 %{_bindir}/xmlcatalog --noout --add "delegateURI" \
-	"http://www.oasis-open.org/docbook/" \
-	"file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
+    "http://www.oasis-open.org/docbook/" \
+    "file://%{_datadir}/sgml/docbook/xmlcatalog" $XMLCATALOG
 # Also create the common DocBook catalog
 %{_bindir}/xmlcatalog --noout --create \
-	%{buildroot}%{_datadir}/sgml/docbook/xmlcatalog
+    %{buildroot}%{_datadir}/sgml/docbook/xmlcatalog
 
 rm -f %{buildroot}%{_datadir}/sgml/xml.dcl
 
 install -p -m0644 %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} \
-	%{buildroot}%{_datadir}/sgml
+    %{buildroot}%{_datadir}/sgml
 
 rm -rf %{buildroot}%{_datadir}/xml/*
 rm -f %{buildroot}%{_datadir}/doc/*.html
