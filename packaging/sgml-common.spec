@@ -20,7 +20,7 @@ Patch1:    sgml-common-xmldir.patch
 BuildArch: noarch
 BuildRequires: libxml2 >= 2.4.8-2
 BuildRequires: automake >= 1.12
-BuildRequires: config(docbook_4)
+BuildRequires: docbook_4
 
 %description
 The sgml-common package contains a collection of entities and DTDs
