@@ -19,7 +19,7 @@ Patch0:    sgml-common-umask.patch
 Patch1:    sgml-common-xmldir.patch
 BuildArch: noarch
 BuildRequires: libxml2 >= 2.4.8-2
-BuildRequires: automake >= 1.12
+BuildRequires: automake >= 1.14
 BuildRequires: docbook_4
 
 %description
@@ -48,7 +48,7 @@ but that don't need to be included in main package.
 # replace bogus links with files
 for file in COPYING INSTALL install-sh missing mkinstalldirs; do 
    rm $file
-   cp -p %{_datadir}/automake-1.12/$file .
+   cp -p %{_datadir}/automake-1.14/$file .
 done
 
 %build
