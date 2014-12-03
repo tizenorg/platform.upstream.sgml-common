@@ -1,2 +1,1 @@
-man8dir	  = $(mandir)/man8
-man8_DATA = *.8
+man_MANS = install-catalog.8
