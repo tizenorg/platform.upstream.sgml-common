@@ -1,6 +1,6 @@
 Name:      sgml-common
 Version:   0.6.3
-Release:   1
+Release:   0
 Group:     Applications/Text
 Summary:   Common SGML catalog and DTD files
 License:   GPL-2.0
@@ -19,7 +19,7 @@ Patch0:    sgml-common-umask.patch
 Patch1:    sgml-common-xmldir.patch
 BuildArch: noarch
 BuildRequires: libxml2 >= 2.4.8-2
-BuildRequires: automake >= 1.12
+BuildRequires: automake
 BuildRequires: docbook_4
 
 %description
@@ -45,14 +45,9 @@ but that don't need to be included in main package.
 %patch0 -p1
 %patch1 -p1
 
-# replace bogus links with files
-for file in COPYING INSTALL install-sh missing mkinstalldirs; do 
-   rm $file
-   cp -p %{_datadir}/automake-1.12/$file .
-done
-
 %build
-%configure
+%reconfigure
+
 
 %install
 make install DESTDIR="%{buildroot}" htmldir='%{_datadir}/doc' INSTALL='install -p'
